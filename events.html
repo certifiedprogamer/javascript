@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="kerry" class="hidden">
+      <video src="have a free sample.mp4"></video>
+    </div>
+    <div class="container">
+      <a id="offTask" href="#">Kerry's up to no good</a>
+    </div>
+    <script>
+      const MYvideo = document.querySelector("video");
+      const kerry = document.getElementById("kerry");
+      const offTask = document.getElementById("offTask");
+
+      offTask.addEventListener("click", (e) => {
+        event.preventDefault(); //stop the link from doing what it normally would
+        console.log("clicked", e.target.tagName);
+        kerry.classList.remove("hidden");
+        MYvideo.play();
+        MYvideo.loop = true;
+        MYvideo.playbackRate = 2.0;
+        //for loop in JS (starting variable, condition, change)
+        for (let i = 0; i < 16; i++) {
+          let newNode = MYvideo.cloneNode(true);
+          newNode.style.position = "absolute";
+          newNode.style.left = 20 * i + "px";
+          newNode.style.top = 20 * i + "px";
+          document.body.append(newNode);
+          newNode.play();
+          newNode.loop = true;
+          newNode.playbackRate = i;
+        }
+      });
+    </script>
+  </body>
+</html>
