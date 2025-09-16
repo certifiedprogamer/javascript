@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#" id="test">
+      <input name="userIn" type="text" />
+      <button id="submit" type="submit">submit</button>
+    </form>
+    <script>
+      const form = document.getElementById("test");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault;
+        //get the data as formdata:
+        const fData = new FormData(form); // gets the data from the form
+        console.log(fData.get("userIn")); // gets a value based on control name
+        //get the data directly:
+        /*
+        let theInput = document.querySelector("input[name=userInd]");
+        console.log(theInput.value);
+        theInput.value ="changed";
+        */
+      });
+    </script>
+  </body>
+</html>
