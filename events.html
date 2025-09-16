@@ -8,6 +8,11 @@
       .hidden {
         display: none;
       }
+      img {
+        display: block;
+        width: 200px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -16,6 +21,7 @@
     </div>
     <div class="container">
       <a id="offTask" href="#">Kerry's up to no good</a>
+      <img src="its so beautiful.png" alt="" />
     </div>
     <script>
       const MYvideo = document.querySelector("video");
@@ -40,6 +46,17 @@
           newNode.loop = true;
           newNode.playbackRate = i;
         }
+      });
+
+      const saveUs = document.querySelector("img");
+      //different function example
+      saveUs.addEventListener("click", function (e) {
+        const videos = document.querySelectorAll("body > video");
+        for (vid of videos) {
+          vid.remove();
+        }
+        MYvideo.pause();
+        kerry.classList.add("hidden");
       });
     </script>
   </body>
